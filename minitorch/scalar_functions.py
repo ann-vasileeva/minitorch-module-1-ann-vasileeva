@@ -103,7 +103,7 @@ class Mul(ScalarFunction):
 
     @staticmethod
     def forward(ctx: Context, a: float, b: float) -> float:
-        ctx.save_for_backward(a,b)
+        ctx.save_for_backward(a, b)
         return operators.mul(a, b)
 
     @staticmethod
@@ -183,7 +183,7 @@ class Exp(ScalarFunction):
 
     @staticmethod
     def backward(ctx: Context, d_output: float) -> float:
-        (exp, ) = ctx.saved_values
+        (exp,) = ctx.saved_values
         return operators.mul(d_output, exp)
 
 
@@ -192,7 +192,7 @@ class LT(ScalarFunction):
 
     @staticmethod
     def forward(ctx: Context, a: float, b: float) -> float:
-        ctx.save_for_backward(a,b)
+        ctx.save_for_backward(a, b)
         return operators.lt(a, b)
 
     @staticmethod
@@ -205,7 +205,7 @@ class EQ(ScalarFunction):
 
     @staticmethod
     def forward(ctx: Context, a: float, b: float) -> float:
-        return operators.eq(a,b)
+        return operators.eq(a, b)
 
     @staticmethod
     def backward(ctx: Context, d_output: float) -> Tuple[float, float]:
